@@ -55,6 +55,11 @@ class MLXTestModel: ObservableObject {
     }
 
     playerNode.scheduleBuffer(buffer, at: nil, options: .interrupts, completionHandler: nil)
+    BenchmarkTimer.stopTimer(KokoroTTS.Constants.bm_timeToFirstAudio)
+    
+    let timeToFirstAudio = BenchmarkTimer.getTimeInSec(KokoroTTS.Constants.bm_timeToFirstAudio) ?? 0.0
+    logPrint("Time to First Audio: " + String(format: "%.4f sec", timeToFirstAudio))
+    
     playerNode.play()
   }
 }

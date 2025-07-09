@@ -100,6 +100,7 @@ public class KokoroTTS {
     }
 
     BenchmarkTimer.reset()
+    BenchmarkTimer.startTimer(Constants.bm_timeToFirstAudio)
     BenchmarkTimer.startTimer(Constants.bm_TTS)
     BenchmarkTimer.startTimer(Constants.bm_Phonemize, Constants.bm_TTS)
     let outputStr = try! eSpeakEngine.phonemize(text: text)
@@ -179,5 +180,6 @@ public class KokoroTTS {
     static let bm_duration = "Duration"
     static let bm_prosody = "Prosody"
     static let bm_decoder = "Decoder"
+    static let bm_timeToFirstAudio = "TimeToFirstAudio"
   }
 }
